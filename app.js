@@ -15,13 +15,13 @@ const obtenerUsuarios = async ()  => {
 
   });
 
-  client.connect();
+  await client.connect();
   
-  client.query('SELECT * FROM usuarios').then(res => {
+  const res = client.query('SELECT * FROM usuarios');
   
-    const result = res.rows[0].message;
+  const result = res.rows[0].message;
   
-  });
+  await client.end();
 
   return result;
 
